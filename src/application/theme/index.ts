@@ -19,8 +19,9 @@ export const theme = {
     },
     dark: {
       default: "#707070",
-      tint: "",
+      tint: "#20253F",
       shade: "#4d4d4d",
+      dark: "#33384F"
     },
     purple: {
       default: "#7358a7",
