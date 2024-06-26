@@ -79,7 +79,7 @@ export const HomePage: FC<HomePageProps> = (props) => {
                          alt="some guy with a dog"/>
                     {profile.name}
 
-                    <div className="h-10 w-10 flex items-center justify-center cursor-pointer" onClick={toggleOpen}>
+                    <div className="h-10 w-10 flex items-center justify-center cursor-pointer">
                         <ChevronDown size={24} color={theme.color.medium.shade}  onClick={toggleOpenDrop}/>
                     </div>
                     {isOpenDrop && (
