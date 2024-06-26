@@ -21,11 +21,17 @@ export const HomePage: FC<HomePageProps> = (props) => {
     const {announcements, profile} = props;
     const theme = useTheme();
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isOpenDrop, setIsOpenDrop] = useState<boolean>(false);
 
-    const toggleOpen = () => {
+    const toggleOpen = ():void => {
         setIsOpen(!isOpen);
     };
+
+    const toggleOpenDrop = ():void => {
+        setIsOpenDrop(!isOpenDrop)
+    }
+
 
     return (
         <Styled.PageWrapper>
@@ -73,9 +79,18 @@ export const HomePage: FC<HomePageProps> = (props) => {
                          alt="some guy with a dog"/>
                     {profile.name}
 
-                    <div className="h-10 w-10 flex items-center justify-center">
-                        <ChevronDown size={24} color={theme.color.medium.shade}/>
+                    <div className="h-10 w-10 flex items-center justify-center cursor-pointer" onClick={toggleOpen}>
+                        <ChevronDown size={24} color={theme.color.medium.shade}  onClick={toggleOpenDrop}/>
                     </div>
+                    {isOpenDrop && (
+                        <div className="absolute z-10 right-50 top-16  mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                            <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Option 1</a>
+                                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Option 2</a>
+                                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Option 3</a>
+                            </div>
+                        </div>
+                    )}
 
                 </div>
             </Styled.HeaderContainer>
